@@ -11,7 +11,7 @@
 ## CARA INSTALL DAN MENJANLANKAN PROGRAM
 1. Clone Repo ini
 ```
-https://github.com/hablanm/testfront.git
+https://github.com/hablanm/front-test.git
 ```
 2. Masuk Repo
 ```
