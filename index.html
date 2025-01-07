@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard with TailwindCSS</title>
+    <link rel="stylesheet" href="src/output.css" />
+  </head>
+  <body>
+    <!-- PEMBUNGKUS -->
+    <div class="flex">
+      <!-- KIRI -->
+      <div class="w-[15%]">
+        <!-- KIRI ATAS -->
+        <div
+          class="font-bold text-xl h-[60px] border-b-[1px] border-slate-300 flex items-center"
+        >
+          <div class="px-4">Mediacore</div>
+        </div>
+
+        <!-- KIRI BAWAH -->
+        <div class="p-4">
+          <input
+            type="search"
+            placeholder="Search"
+            class="outline-none border-[1px] border-slate-300 w-[100%] py-1 px-2 rounded-md"
+          />
+          <div class="py-1 mt-1">Dashboard</div>
+          <div class="py-1 mt-1">Schedule</div>
+          <div class="py-1 mt-1">Transaction</div>
+          <div class="py-1 mt-1">Message</div>
+          <div class="py-1 mt-1">Notification</div>
+          <div class="py-4 mt-1 font-bold text-sm text-slate-500">
+            Management
+          </div>
+          <div class="py-1 mt-1">Badroom</div>
+          <div class="py-1 mt-1">Medicine</div>
+          <div class="py-1 mt-1">Appointment</div>
+          <div class="py-1 mt-1">Patient</div>
+          <div class="py-1 mt-1">Doctor</div>
+          <div class="py-1 mt-[100px]">Settings</div>
+          <div class="py-1 mt-1">Help & support</div>
+
+          <!-- PROFILE -->
+          <div class="py-2 mt-4 border-t-[1px] border-slate-300">
+            <div class="flex items-center">
+              <img
+                src="https://avatars.githubusercontent.com/u/108745073?v=4"
+                alt="avatar"
+                class="w-[30px] h-[30px] mr-2 border-[1px] rounded-full border-slate-300"
+              />
+              <div>
+                <div class="text-sm">Medicore</div>
+                <div class="text-xs text-slate-500">Admin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KANAN -->
+      <div class="w-[85%]">
+        <!-- KANAN ATAS -->
+        <div
+          class="h-[60px] border-l-[1px] border-b-[1px] border-slate-300 flex items-center justify-between"
+        >
+          <!-- WELCOME -->
+          <div class="px-4 font-bold text-xl">Welcome Back, Darrel 😎</div>
+          <!-- TOMBOL -->
+          <div class="px-4 flex">
+            <div
+              class="py-1 px-2 mr-2 border border-slate-300 rounded-md text-sm"
+            >
+              Export CSV
+            </div>
+            <div class="py-1 px-2 rounded-md text-sm text-white bg-black">
+              Add New
+            </div>
+          </div>
+        </div>
+
+        <!-- KANAN BAWAH -->
+        <div class="p-4 border-l-[1px] border-slate-300">
+          <div class="flex flex-wrap">
+            <div
+              class="min-w-[200px] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <div class="font-semibold">Overal visitor</div>
+              <div class="font-bold text-xl mt-2">1,478</div>
+              <div class="text-sm">Compare with last month</div>
+            </div>
+            <div
+              class="min-w-[200px] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <div class="font-semibold">Total doctor</div>
+              <div class="font-bold text-xl mt-2">210</div>
+              <div class="text-sm">Compare with last month</div>
+            </div>
+            <div
+              class="min-w-[200px] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <div class="font-semibold">Book appointment</div>
+              <div class="font-bold text-xl mt-2">321</div>
+              <div class="text-sm">Compare with last month</div>
+            </div>
+            <div
+              class="min-w-[200px] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <div class="font-semibold">Room availability</div>
+              <div class="font-bold text-xl mt-2">213/335</div>
+              <div class="text-sm">Compare with last month</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap lg:flex-nowrap">
+            <div class="w-full">
+              <!-- PATIENT OVERVIEW -->
+              <div
+                class="min-w-[200px] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              >
+                <div class="flex justify-between items-center">
+                  <div class="text-lg font-semibold">Patient overview</div>
+                  <div
+                    class="flex items-center font-semibold text-sm p-2 border-[1px] rounded-md border-slate-300"
+                  >
+                    Montly
+                  </div>
+                </div>
+                <div class="flex justify-center items-center">
+                  <canvas id="patient-overview-chart"></canvas>
+                </div>
+              </div>
+              <div class="flex">
+                <!-- MEDICINE SUPPLIES -->
+                <div
+                  class="w-[50%] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+                >
+                  <div class="text-lg font-semibold">Medicine Supplies</div>
+                  <div class="flex py-2">
+                    <div class="min-w-max w-[40%] font-bold">NAME</div>
+                    <div class="min-w-max w-[30%] font-bold">STOCK</div>
+                    <div class="min-w-max w-[30%] font-bold">LAST MONTH</div>
+                  </div>
+                  <div class="flex">
+                    <div class="min-w-max w-[40%]">Parachetamol</div>
+                    <div class="min-w-max w-[30%]">140</div>
+                    <div class="min-w-max w-[30%]">2,5%</div>
+                  </div>
+                  <div class="flex">
+                    <div class="min-w-max w-[40%]">Anastrozole</div>
+                    <div class="min-w-max w-[30%]">123</div>
+                    <div class="min-w-max w-[30%]">3,5%</div>
+                  </div>
+                  <div class="flex">
+                    <div class="min-w-max w-[40%]">Amoxcilin</div>
+                    <div class="min-w-max w-[30%]">80</div>
+                    <div class="min-w-max w-[30%]">2,5%</div>
+                  </div>
+                  <div class="flex">
+                    <div class="min-w-max w-[40%]">Bisoprolol</div>
+                    <div class="min-w-max w-[30%]">60</div>
+                    <div class="min-w-max w-[30%]">3,5%</div>
+                  </div>
+                  <div class="flex">
+                    <div class="min-w-max w-[40%]">Clonidne</div>
+                    <div class="min-w-max w-[30%]">54</div>
+                    <div class="min-w-max w-[30%]">2,5%</div>
+                  </div>
+                </div>
+                <!-- TOP 3 -->
+                <div
+                  class="w-[50%] flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+                >
+                  <div class="text-lg font-semibold">
+                    Top 3 in-demand clinics
+                  </div>
+
+                  <canvas id="clinicPieChart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="w-full lg:w-[500px]">
+              <!-- KALENDER -->
+              <div
+                class="flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              >
+                <div class="flex items-center justify-center">
+                  <div class="max-w-sm w-full">
+                    <div class="rounded-t">
+                      <div class="flex items-center justify-between">
+                        <span
+                          tabindex="0"
+                          class="focus:outline-none text-base font-bold text-gray-800"
+                          >Januari 2025</span
+                        >
+                        <div class="flex items-center">
+                          <button
+                            aria-label="calendar backward"
+                            class="focus:text-gray-400 hover:text-gray-400 text-gray-800"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="icon icon-tabler icon-tabler-chevron-left"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path
+                                stroke="none"
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <polyline points="15 6 9 12 15 18" />
+                            </svg>
+                          </button>
+                          <button
+                            aria-label="calendar forward"
+                            class="focus:text-gray-400 hover:text-gray-400 ml-3 text-gray-800"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="icon icon-tabler icon-tabler-chevron-right"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              fill="none"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path
+                                stroke="none"
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <polyline points="9 6 15 12 9 18" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="flex items-center justify-between pt-12 overflow-x-auto"
+                      >
+                        <table class="w-full">
+                          <thead>
+                            <tr>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    Mo
+                                  </p>
+                                </div>
+                              </th>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    Tu
+                                  </p>
+                                </div>
+                              </th>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    We
+                                  </p>
+                                </div>
+                              </th>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    Th
+                                  </p>
+                                </div>
+                              </th>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    Fr
+                                  </p>
+                                </div>
+                              </th>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    Sa
+                                  </p>
+                                </div>
+                              </th>
+                              <th>
+                                <div class="w-full flex justify-center">
+                                  <p
+                                    class="text-base font-medium text-center text-gray-800"
+                                  >
+                                    Su
+                                  </p>
+                                </div>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="pt-6">
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                ></div>
+                              </td>
+                              <td class="pt-6">
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                ></div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                ></div>
+                              </td>
+                              <td class="pt-6">
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    1
+                                  </p>
+                                </div>
+                              </td>
+                              <td class="pt-6">
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    2
+                                  </p>
+                                </div>
+                              </td>
+                              <td class="pt-6">
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">3</p>
+                                </div>
+                              </td>
+                              <td class="pt-6">
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">4</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    5
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    6
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    7
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="w-full h-full">
+                                  <div
+                                    class="flex items-center justify-center w-full rounded-full cursor-pointer"
+                                  >
+                                    <a
+                                      role="link"
+                                      tabindex="0"
+                                      class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-500 hover:bg-indigo-500 text-base w-8 h-8 flex items-center justify-center font-medium text-white bg-indigo-700 rounded-full"
+                                      >8</a
+                                    >
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    9
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">10</p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">11</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    12
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    13
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    14
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    15
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    16
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">17</p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">18</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    19
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    20
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    21
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    22
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    23
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">24</p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p class="text-base text-gray-500">25</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    26
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    27
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    28
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    29
+                                  </p>
+                                </div>
+                              </td>
+                              <td>
+                                <div
+                                  class="px-2 py-2 cursor-pointer flex w-full justify-center"
+                                >
+                                  <p
+                                    class="text-base text-gray-500 font-medium"
+                                  >
+                                    30
+                                  </p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- APPOINTMENT -->
+              <div
+                class="flex-1 m-2 p-4 border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              >
+                <div class="text-lg font-semibold">Medicine Supplies</div>
+
+                <div class="py-4">
+                  <!-- PEOPLE -->
+                  <div class="py-2 flex items-center">
+                    <div class="mr-4">
+                      <img
+                        src="https://avatars.githubusercontent.com/u/108745073?v=4"
+                        alt="avatar"
+                        class="w-[40px] h-[40px] mr-2 border-[1px] rounded-full border-slate-300"
+                      />
+                    </div>
+                    <div class="w-full flex justify-between items-center">
+                      <div>
+                        <div class="font-bold">Esther Howard</div>
+                        <div class="text-sm text-slate-500">Poly Dental</div>
+                      </div>
+                      <div>
+                        <div class="text-sm">Today</div>
+                        <div class="font-semibold">09:40</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-2 flex items-center">
+                    <div class="mr-4">
+                      <img
+                        src="https://avatars.githubusercontent.com/u/108745073?v=4"
+                        alt="avatar"
+                        class="w-[40px] h-[40px] mr-2 border-[1px] rounded-full border-slate-300"
+                      />
+                    </div>
+                    <div class="w-full flex justify-between items-center">
+                      <div>
+                        <div class="font-bold">Arlene McCoy</div>
+                        <div class="text-sm text-slate-500">Pschyiatrist</div>
+                      </div>
+                      <div>
+                        <div class="text-sm">Today</div>
+                        <div class="font-semibold">09:40</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-2 flex items-center">
+                    <div class="mr-4">
+                      <img
+                        src="https://avatars.githubusercontent.com/u/108745073?v=4"
+                        alt="avatar"
+                        class="w-[40px] h-[40px] mr-2 border-[1px] rounded-full border-slate-300"
+                      />
+                    </div>
+                    <div class="w-full flex justify-between items-center">
+                      <div>
+                        <div class="font-bold">Guy Hawkins</div>
+                        <div class="text-sm text-slate-500">Internist</div>
+                      </div>
+                      <div>
+                        <div class="text-sm">Today</div>
+                        <div class="font-semibold">09:40</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-2 flex items-center">
+                    <div class="mr-4">
+                      <img
+                        src="https://avatars.githubusercontent.com/u/108745073?v=4"
+                        alt="avatar"
+                        class="w-[40px] h-[40px] mr-2 border-[1px] rounded-full border-slate-300"
+                      />
+                    </div>
+                    <div class="w-full flex justify-between items-center">
+                      <div>
+                        <div class="font-bold">Courtney Henry</div>
+                        <div class="text-sm text-slate-500">Ophtahalmologist</div>
+                      </div>
+                      <div>
+                        <div class="text-sm">Today</div>
+                        <div class="font-semibold">09:40</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-2 flex items-center">
+                    <div class="mr-4">
+                      <img
+                        src="https://avatars.githubusercontent.com/u/108745073?v=4"
+                        alt="avatar"
+                        class="w-[40px] h-[40px] mr-2 border-[1px] rounded-full border-slate-300"
+                      />
+                    </div>
+                    <div class="w-full flex justify-between items-center">
+                      <div>
+                        <div class="font-bold">Annete Black</div>
+                        <div class="text-sm text-slate-500">Neuorologist</div>
+                      </div>
+                      <div>
+                        <div class="text-sm">Today</div>
+                        <div class="font-semibold">09:40</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const monthlyTotalPatients = [
+        70, 60, 75, 68, 80, 85, 78, 72, 82, 90, 90, 81,
+      ]; // Total pasien per bulan
+      const monthlyInpatient = [22, 24, 20, 25, 26, 27, 23, 20, 22, 21, 28, 30]; // Pasien rawat inap per bulan
+      const monthlyOutpatient = [
+        48, 36, 55, 43, 54, 58, 55, 52, 60, 69, 62, 51,
+      ]; // Pasien rawat jalan per bulan
+
+      const ctx1 = document.getElementById("patient-overview-chart");
+      const patientOverviewChart = new Chart(ctx1, {
+        type: "bar", // Jenis chart bar (balok)
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ], // Label bulan
+          datasets: [
+            {
+              label: "Total Patients",
+              data: monthlyTotalPatients, // Data total pasien yang dimasukkan secara manual
+              backgroundColor: "rgba(255, 99, 132, 0.6)", // Warna latar belakang balok
+              borderColor: "rgba(255, 99, 132, 1)", // Warna garis tepi balok
+              borderWidth: 1,
+            },
+            {
+              label: "Avg Inpatient Care",
+              data: monthlyInpatient, // Data pasien rawat inap yang dimasukkan secara manual
+              backgroundColor: "rgba(54, 162, 235, 0.6)", // Warna latar belakang balok
+              borderColor: "rgba(54, 162, 235, 1)", // Warna garis tepi balok
+              borderWidth: 1,
+            },
+            {
+              label: "Avg Outpatient Care",
+              data: monthlyOutpatient, // Data pasien rawat jalan yang dimasukkan secara manual
+              backgroundColor: "rgba(75, 192, 192, 0.6)", // Warna latar belakang balok
+              borderColor: "rgba(75, 192, 192, 1)", // Warna garis tepi balok
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Patient Data (2025)",
+            },
+            tooltip: {
+              mode: "index",
+              intersect: false,
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Month",
+              },
+              stacked: true, // Agar balok saling tumpuk
+            },
+            y: {
+              title: {
+                display: true,
+                text: "Number of Patients",
+              },
+              stacked: true, // Agar balok saling tumpuk pada sumbu Y
+            },
+          },
+        },
+      });
+
+      // Data manual untuk total pasien bulan tertentu
+      const totalPatientsThisMonth = 90; // Total pasien bulan ini (contoh: bulan Januari)
+
+      // Membagi total pasien ke tiga klinik
+      const dentalPatients = Math.floor(totalPatientsThisMonth * 0.4); // 40% untuk klinik Dental
+      const internistPatients = Math.floor(totalPatientsThisMonth * 0.35); // 35% untuk klinik Internist
+      const neurologistPatients =
+        totalPatientsThisMonth - dentalPatients - internistPatients; // Sisa untuk klinik Neurologist
+
+      // Membuat pie chart dengan data tersebut
+      var ctx2 = document.getElementById("clinicPieChart").getContext("2d");
+      var clinicPieChart = new Chart(ctx2, {
+        type: "pie", // Jenis chart pie (lingkaran)
+        data: {
+          labels: ["Dental", "Internist", "Neurologist"], // Nama klinik
+          datasets: [
+            {
+              label: "Distribution of Patients",
+              data: [dentalPatients, internistPatients, neurologistPatients], // Jumlah pasien yang dibagi ke tiap klinik
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.6)",
+                "rgba(54, 162, 235, 0.6)",
+                "rgba(75, 192, 192, 0.6)",
+              ], // Warna untuk tiap bagian lingkaran
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(75, 192, 192, 1)",
+              ], // Warna border tiap bagian lingkaran
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Top 3 In-Demand Clinics (January 2025)", // Judul chart
+            },
+            tooltip: {
+              callbacks: {
+                label: function (tooltipItem) {
+                  // Menambahkan label dengan jumlah pasien untuk setiap klinik
+                  return (
+                    tooltipItem.label + ": " + tooltipItem.raw + " patients"
+                  );
+                },
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
