@@ -11,7 +11,7 @@
 ## CARA INSTALL DAN MENJANLANKAN PROGRAM
 1. Clone Repo ini
 ```
-git clone https://github.com/hablanm/node-crud.git
+https://github.com/hablanm/testfront.git
 ```
 2. Masuk Repo
 ```
